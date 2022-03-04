@@ -7,11 +7,13 @@ const userRouter = require("./router/userRouter");
 
 //registering middlewares
 dotEnv.config();
-app.use(express.json());
-app.use(cors());
-app.use("/users", userRouter);
 //connecting to db
 getConnection();
+app.use(express.json());
+app.use(cors());
+
+//registering routes
+app.use("/users", userRouter);
 
 app.get("/", (req, res) => res.send("Api is running"));
 
