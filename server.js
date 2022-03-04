@@ -13,6 +13,8 @@ app.use("/users", userRouter);
 //connecting to db
 getConnection();
 
+app.get("/", (req, res) => res.send("Api is running"));;
+
 //listening to server
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
