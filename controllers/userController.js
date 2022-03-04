@@ -59,8 +59,14 @@ const login = async (req, res) => {
           expiresIn: "2h",
         }
       );
+      //setting it to newUser instance
+      const updated = await userModel.findByIdAndUpdate(
+        user._id,
+        { token: token },
+        { new: true }
+      );
 
-      res.status(200).json(user);
+      res.status(200).json(updated);
     } else {
       res.status(400).send("Invalid Credentials");
     }
