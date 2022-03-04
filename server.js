@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const dotEnv = require("dotEnv");
+const dotEnv = require("dotenv");
 const app = express();
 const getConnection = require("./config/db");
 const userRouter = require("./router/userRouter");
@@ -13,7 +13,7 @@ app.use("/users", userRouter);
 //connecting to db
 getConnection();
 
-app.get("/", (req, res) => res.send("Api is running"));;
+app.get("/", (req, res) => res.send("Api is running"));
 
 //listening to server
 const port = process.env.PORT || 5000;
