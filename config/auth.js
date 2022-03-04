@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
-
+require("dotenv").config();
 //we will pass token as body, or in request
 //then using this token we will authenticate user, if authenticated we will add user to this request
 const authentication = async (req, res, next) => {
